@@ -1,0 +1,72 @@
+#include <iostream>
+#include <limits.h>
+using namespace std;
+
+int findMin(int arr[],int len){
+    int mini = INT_MAX;
+
+    for(int i=0;i<len;i++){
+        if(arr[i] < mini){
+            mini = arr[i];
+        }
+    }
+    return mini;
+}
+
+int findMax(int arr[],int len){
+    int maxi = INT_MIN;
+
+    for(int i=0;i< len;i++){
+        if(arr[i] > maxi){
+            maxi = arr[i];
+        }
+    }
+
+    return maxi;
+}
+
+
+int main(){
+    int arr[] = { 4, 9, 6, 5, 2, 3 };
+    int len = sizeof(arr)/sizeof(arr[0]);
+
+    int min = findMin(arr,len);
+    int max = findMax(arr,len);
+    cout << min << "This is the min value of the Array" << endl;
+    cout << max << "This is the max value of the Array" << endl;
+}
+
+
+
+
+#include <iostream>
+using namespace std;
+
+void reverseArray(int arr[],int start,int end){
+
+    if(start >= end){
+        return;
+    }
+
+    int temp = arr[start];
+    arr[start] = arr[end];
+    arr[end] = arr[start];
+
+    reverseArray(arr,start+1,end-1);
+}
+
+
+void printArray(int arr[],int size){
+  for(int i=0;i<size;i++){
+   cout <<  "This is Reverse Array" << arr[i] << endl;
+  }
+}
+
+
+int main(){
+    int arr[] = {2,32,322,454,6456,33};
+    int size = sizeof(arr)/sizeof(arr[0]);
+    reverseArray(arr,0,size-1);
+    printArray(arr,size);
+}
+

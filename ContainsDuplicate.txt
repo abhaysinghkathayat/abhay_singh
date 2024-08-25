@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+bool ContainsDuplicate(int arr[],int size, int duplicate){
+    for(int i = 0; i < size; i++){
+        int j = i + 1;
+        int range = duplicate;
+        
+        while(range > 0 and  j  < size){
+            if(arr[i] == arr[j]){
+              return true;  
+            }
+            j++;
+            range--;
+        }
+    }
+    
+    return false;
+}
+
+
+int main() 
+{ 
+	int arr[] = { 10, 5, 3, 4, 8, 5, 6 }; 
+	int n = sizeof(arr) / sizeof(arr[0]); 
+	if (ContainsDuplicate(arr, n, 3)) 
+		cout << "Yes"; 
+	else
+		cout << "No"; 
+} 
+
